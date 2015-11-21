@@ -41,3 +41,9 @@ Then /I should see all the movies/ do
   assert rows == Movie.count()
   #fail "Unimplemented"
 end
+
+Then (/^I should see all of the movies$/) do
+  # Make sure that all the movies in the app are visible in the table
+  page.all('table#movies tr').count.should == Movie.count + 1
+  #fail "Unimplemented"
+end
